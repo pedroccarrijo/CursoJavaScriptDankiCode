@@ -1,0 +1,47 @@
+<html>
+    <body>
+        <!-- aula 02 -->
+          <style>
+            .conteudo h2 span{
+                font-size: 13px;
+                cursor: pointer; /* cursor: pointer; - conteudo clicavel */
+            }
+            .conteudo p{
+                overflow: hidden; 
+                height: 0px;
+                transition: 1s;
+            }
+            .mostrar {
+                height: auto !important; /* !important coloca o conteúdo acima na hierarquia*/
+            }
+
+          </style>
+          <div class="conteudo">
+            <h2>O que é JavaScript? <br> <span>Ver mais...</span></h2>
+            <p>JavaScript é uma linguagem de programação fundamental para a web, 
+                usada para criar interatividade e dinamismo em páginas da internet. 
+                Além de possibilitar recursos como animações e formulários responsivos, 
+                ela também é empregada no desenvolvimento de servidores e aplicativos móveis, 
+                graças a ferramentas como Node.js e React Native. 
+                Sua versatilidade e ampla adoção fazem dela uma peça-chave no desenvolvimento moderno.</p>
+          </div>
+          <script>
+            // "querySelector" seleciona apenas 1 conteúdo, "querySelectorAll" seleciona todos ('All')
+            let span = document.querySelector('.conteudo span');
+
+            span.addEventListener('click', () =>{
+                let conteudo = document.querySelector(".conteudo p");
+
+                //mostrando e escondendo o conteudo com if e else; alteranddo a mensagem (ver mais e ocultar) com "innerHTML"
+                //O método "includes()" determina se um conjunto de caracteres pode ser encontrado dentro de outra string (.mostrar), retornando true ou false.
+                if(conteudo.classList.contains('mostrar')){
+                    span.innerHTML = "Ver mais...";
+                    conteudo.classList.remove('mostrar') // ".remove" remove o a função determinada, no caso (mostrar)
+                } else {
+                    span.innerHTML = "Ocultar"
+                    conteudo.classList.add('mostrar') // ".add" adiciona a função desejada, no caso ('mostrar')
+                }
+            })
+          </script>
+    </body>
+</html> 

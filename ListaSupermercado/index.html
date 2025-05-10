@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Supermercado</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        header{ /* cabeçalho da pagina */
+
+            background-color: #242b81; /*color do cabeçalho (fundo) */
+            text-align: center; /* alinhar texto no centro */
+            color: rgb(255, 255, 255); /*coloração da ecrita */
+            padding: 20px 0; /* espaço do texto para as bordas - cima,baixo (interno) */
+        }
+        .lista-cadastro{ /* caixa de cadastro dos produtos (nome produto e valor produto) */
+
+            display: flex; /* alinha */
+            margin: 20px 0; /* espaço do texto para as bordas (externo) */
+            padding: 0 20px; /* espaço do texto para as bordas - direita,esquerda (interno) */
+        }
+        .lista-cadastro input[type=text]{ /* formatação do texto de dentro das caixas de cadastro */
+
+            flex:1;
+            height: 40px; /* altura para o campo de texto */
+            padding-left: 20px; /* o texto digitado começara com a distancia de 20px da borda da caixa */
+        }
+        .lista-produto-single{ /* alinhamento dos produtos já cadastrado */
+
+            padding: 15px 0; /* distancia entre o texto e a borda (linha de separação dos produtos) */
+            border-bottom: 1px solid #000000; /* espessura, tipo e cor das linhas de separação*/
+            display: flex; /* alinha */
+        }
+        .lista-produto-single h3{ /* alinhamento do nome dos produtos*/
+
+            flex: 1;
+            padding: 0 20px;
+        }
+        h3.price-produto{ /* valor do produto (texto) */
+
+            text-align: right;
+            font-size: 17px;
+    
+        }
+        h3.price-produto > span{ /* definição do fundo da caixa de texto, valor do produto */
+
+            background-color: #242b81; /* color do fundo */
+            padding: 8px 10px; /* distancia entre o texto e a borda */
+            border-radius: 20px; /* arredonda as bordas */
+            color: white; /* color do texto */
+        }
+        .soma-produto{
+            margin:20px;
+        }
+        .buttonLimpar{
+            padding: 10px 20px;
+            margin: 0 20px;
+            cursor: pointer;
+            border-radius: 100px;  
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <header>
+        <h2>App Lista de Supermercado</h2> <!-- cabeçalho da web -->
+    </header>
+    <div class="lista-cadastro"> <!-- div das c aixas de cadastro dos produtos -->
+        <input type="text" placeholder="nome do produto..." name="nome_produto"/> <!-- caixa NOME_PRODUTO-->
+        <input type="number" placeholder="valor do produto..."name="valor_produto" step="0.01"/> <!-- caixa VALOR_PRODUTO -->
+        <input type="submit" name="acao" value="Cadastrar"/> <!-- botão cadastrar -->
+    </div>
+
+    <div class="lista-produtos"> <!-- lista dos produtos já cadastrados -->
+      
+        
+    </div>
+
+    <div class="soma-produto">
+        <h1>
+            Total: R$0
+        </h1>
+    </div>
+    <button class = "buttonLimpar" name="limpar">Limpar</button>
+    <script src="supermercado.js">
+
+    </script>
+</body>
+</html>

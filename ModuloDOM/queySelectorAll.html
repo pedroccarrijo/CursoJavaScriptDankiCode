@@ -1,0 +1,16 @@
+<!-- querySelectorAll -->
+<html>
+    <body>
+        <div class="testes">
+            <div class="inside-testes">Texto</div>
+        </div>
+        <div class="testes">
+            <div class="inside-testes">Texto2</div>
+        </div>
+        <script>
+            let elementos = document.querySelectorAll(" .testes .inside-testes") //seleciona uma classe dentro da outra, ou a classe toda tbm
+            elementos[0].style.color = "red"
+            elementos[1].innerHTML = "alterado"
+        </script>
+    </body>
+</html>

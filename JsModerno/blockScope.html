@@ -1,0 +1,24 @@
+<html>
+    <body>
+        <script>
+
+            { // '{}' - scopo
+                //vai ficar definido apenas neste scopo
+
+                let nome = 'pedro';
+
+                /*function teste(){  //escrita desta forma pode ser chamada fora do scopo
+                    console.log('Ola!');
+                }*/
+               
+                let teste = function (){ //funciona apenas dentro do scopo por ser um let 
+                    console.log('Ola!');
+                }
+
+                teste()
+            }
+
+            //teste(); // chamando a function
+        </script>
+    </body>
+</html>

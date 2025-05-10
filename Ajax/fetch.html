@@ -1,0 +1,40 @@
+<html>
+    <body>
+        <script>
+
+            fetch('https://jsonplaceholder.typicode.com/todos/1').then(response=> response.json()).then(json=>console.log(json))
+            // fetch( ): faz uma requisição GET por padrão para o endereço indicado.
+            // .then(response => response.json()): transforma a resposta (que é um stream) em JSON.
+            // .then(json => console.log(json)): exibe o resultado no console.
+
+            fetch('https://jsonplaceholder.typicode.com/todos/1', {
+
+                method:"POST", // method: "POST": indica que você está enviando dados para o servidor.
+                
+                body: JSON.stringify({
+                    title: 'Danki Code',
+                    body: 'Meu conteúdo',
+                    userId: 10
+                }), // body: JSON.stringify({ }): os dados a serem enviados, convertidos para JSON.
+
+                headers:{
+                    'Content-Type': 'application/json; charset=UTF-8'
+                    } //headers: especifica que o corpo da requisição está no formato JSON.
+
+            }).then(response=> response.json()).then(json=>console.log(json))
+
+
+            // fetch é moderno e usa Promises.
+
+            // .then() trata a resposta.
+
+            // Requisição GET: só busca dados.
+
+            // Requisição POST: envia dados.
+
+            // Sempre converta body em JSON e defina o Content-Type corretamente.
+
+            
+        </script>
+    </body>
+</html>

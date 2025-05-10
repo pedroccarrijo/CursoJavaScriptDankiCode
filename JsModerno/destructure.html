@@ -1,0 +1,15 @@
+<html>
+    <body>
+        <script>
+
+            const arr = ["pedro", "carlos", "junior", "jorge", "kaique"]
+            
+            //const [a,b,c] = arr;  // cada elemento do [] atribui um valor da "const arr" na ordem consecutiva dos itens 
+
+            const [a,b,...c] = arr // os "..." atribuem todos os itens restantes a o elemento seguinte no caso (junior, jorge e kaique) ficam no elemento 'c'
+
+            alert(c);
+            alert(c[0]) // seleciona qual item dentro do elemento 
+        </script>
+    </body>
+</html>

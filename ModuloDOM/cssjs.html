@@ -1,0 +1,50 @@
+<!-- manipulando css direto no html <script> style -->
+    
+<html>
+    <body>
+        <!-- usando id -->
+        <div id="box"></div>
+
+        <!-- usando class -->
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </body>
+    <script>
+        // id
+        let elementoId = document.getElementById('box') //".getElementById" puxa o elemnto pelo id (no caso seria o 'box')
+        elementoId.style.width = 100;
+        elementoId.style.height = 100;
+        elementoId.style.backgroundColor = 'blue';
+        elementoId.style.marginLeft = 200;
+        elementoId.style.borderWidth = 2
+        elementoId.style.borderColor = 'black'
+        elementoId.style.borderStyle = 'solid'
+        
+
+        // class
+        let elementoC = document.getElementsByClassName('box')
+
+        /*let elementoClass = elementoC[0] //determina em qual das class (box) modificar
+
+        elementoClass.style.width = 100;
+        elementoClass.style.height = 100;
+        elementoClass.style.backgroundColor = 'green';
+        elementoClass.style.marginLeft = 200;*/
+
+        // class com for
+        for(let i=0; i < elementoC.length; i++){
+            let elementoClass = elementoC[i]
+        elementoClass.style.width = 100;
+        elementoClass.style.height = 100;
+        elementoClass.style.backgroundColor = 'green';
+        elementoClass.style.marginLeft = 200;
+        elementoClass.style.marginTop = 10
+        elementoClass.style.borderWidth = 2
+        elementoClass.style.borderColor = 'black'
+        elementoClass.style.borderStyle = 'solid'
+        } // repete a modificação até a class (box) desejada
+
+
+    </script>
+</html>

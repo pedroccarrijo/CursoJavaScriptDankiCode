@@ -1,0 +1,95 @@
+<html></html>
+    <body>
+
+        <style>
+            .container{
+                position: relative;
+                height:500px;
+            }
+            .container img{
+                position: absolute;
+                left:0;
+                top:0;
+                width:100%;
+                opacity: 0; /* "opacity: 0;" - deixa a imagem tranparente / "opacity: 1;" deixa a imagem visivel */
+                transition:1s;
+            }
+
+            .bullets{
+                text-align: center;  /*posição dos botoes*/
+            }
+
+            .bullet-single{  /* bolinhas/botões de seleção das imagens */
+                margin:0 8px;
+                cursor: pointer;
+                display: inline-block;
+                width:20px;
+                height:20px;
+                border-radius:10px;
+                background-color: #ccc;
+            }
+
+            .active-bullet{ /* transção de cores */
+                background-color:#333;
+            }
+        </style>
+
+        <div class="container">
+            <img style="opacity:1;" src="https://picsum.photos/id/237/300/200" /> <!--primeira imagem visivel (opacity: 1;)-->
+            <img src="https://picsum.photos/id/238/300/200" />
+            <img src="https://picsum.photos/id/239/300/200" />
+        </div>
+
+        <div class="bullets"> <!-- um pra cada imagem -->
+            <div class="bullet-single active-bullet"></div> <!-- peimeira bullet ativa (colorida / precionada)-->
+            <div class="bullet-single"></div>
+            <div class="bullet-single"></div>
+        </div>
+
+        <script>
+
+            let lastIndex2 = 0;
+            
+            let imagens2 = document.querySelectorAll('.container img'); // selecionando todas 'img' da class "container"
+
+            imagens2.forEach((item,index) => {
+
+                
+                document.querySelectorAll(".bullet-single")[index]
+                .addEventListener('click',() => {
+                   
+                    let lastImage2 = document.querySelectorAll('.container img')[lastIndex2] //[] seleciona o valor do index (0, 1, 2..), no caso lastIndex tera o valor 0 
+                    let actualImage2 = document.querySelectorAll('.container img')[index] //tera o valor atual do index
+
+                    //resetar os bullets e setar a nova com base na imagem
+
+                    document.querySelectorAll('.bullet-single')[lastIndex2] 
+                    .classList.remove('active-bullet');
+
+                    document.querySelectorAll('.bullet-single')[index]
+                    .classList.add('active-bullet');
+
+                    lastImage2.style.opacity = 0;
+                    actualImage2.style.opacity = 1;
+
+                    lastIndex2 = index;
+                    
+
+                });
+
+            })
+
+            
+
+             
+
+    
+
+            
+
+            
+            
+
+        </script>
+    </body>
+</html>

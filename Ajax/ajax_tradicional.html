@@ -1,0 +1,33 @@
+<html>
+    <body>
+        <script>
+            var request = new XMLHttpRequest(); // Aqui, você cria uma nova instância do objeto XMLHttpRequest, que permite enviar requisições HTTP
+            request.open('GET', 'https://jsonplaceholder.typicode.com/todos/1', true); 
+            // GET -> método HTTP usado para buscar dados.
+            // URL -> o endereço da API que retorna um JSON
+            // true -> a requisição é assíncrona, ou seja, não bloqueia o restante do código enquanto espera a resposta.
+
+            request.onload = function(){ 
+                if(this.status >= 200 && this.status < 400){ //verifica o status do request (de 200 a 400 request com sucesso)
+                    //requere foi feito com sucesso 
+                    var data = JSON.parse(this.response);
+                    console.log(data);
+                } else{
+                    //erro
+                }
+                // onload -> é chamado quando a resposta chega do servidor.
+                // this.status >= 200 && < 400 -> verifica se a resposta foi bem-sucedida.
+                // this.response -> contém a resposta em formato texto.
+                // JSON.parse() -> converte esse texto JSON em um objeto JavaScript.
+                // console.log(data) -> exibe o objeto no console.
+            }
+
+            request.onerror = function(){
+                //erro de rede
+            }
+            request.send();
+                //Isso inicia a requisição.
+
+        </script>
+    </body>
+</html>

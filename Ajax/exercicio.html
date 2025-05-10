@@ -1,0 +1,51 @@
+<html>
+    <body>
+        <div class = container>
+            <!--<div class="container">: é onde os filmes serão inseridos-->
+
+        </div>
+        <script>
+            //fetch() -> faz uma requisição HTTP para a API de filmes populares  
+            //api_key=... -> sua chave para acessar a API. 
+            //language=en-US -> para que os dados venham em inglês.
+            //page=1 -> pega a primeira página dos resultados.
+            fetch('https://api.themoviedb.org/3/movie/popular?api_key=506fadb0256c13349acc05dabebf9604&language=en-US&page=1', {
+                method: 'GET' //method: 'GET' -> define que queremos buscar dados 
+            }) 
+            .then(response => response.json()) //.then() espera a resposta e converte o corpo da resposta para formato JSON
+            .then(function(json){ //json é o objeto completo de resposta da API.
+
+                var container = document.querySelector('.container'); //document.querySelector('.container') pega a <div> onde os filmes serão inseridos.
+                
+                json.results.map(function(val){ //json.results é um array  .map (percorre cada filme retornado)
+                    container.innerHTML+=` 
+
+                        <div style="cursor:pointer;" class="tituloFilme">`+val.title+` 
+                        <div style="display:none;" class="description">`+val.overview+`</div>
+                        <hr>
+
+                    </div>`;
+                    // container.innerHTML+= -> adiciona um novo bloco de HTML dentro do container, usando += para concatenar o conteúdo já existente com o novo.
+                    // val.title -> título do filme
+                    // val.overview -> descrição do filme
+                    // class="tituloFilme" -> título clicável
+                    // div.description -> oculta com o resumo
+                    // <hr> -> separador
+
+                })
+
+                var titulos = document.querySelectorAll('.tituloFilme'); //Seleciona todos .tituloFilme
+                for(var i = 0; i < titulos.length; i++){
+                    titulos[i].addEventListener('click', function (t){
+                        if(t.target.querySelector('.description').style.display == "none"){ 
+                            t.target.querySelector('.description').style.display = "block" // Mostra o conteúdo após o click (caso ele ainda esteja oculto)
+                        } else{
+                            t.target.querySelector('.description').style.display = "none" // Deixa o conteúdo oculto
+                        }
+                    })
+                }
+            })
+            
+        </script>
+    </body>
+</html>    

@@ -1,0 +1,36 @@
+<html>
+    <body>
+        <!-- aula 01 -->
+        <style>
+            .box{
+                width:200px;
+                height: 200px;
+                background-color: red;
+                margin-left: 0;
+            }
+            .animationLeft{
+                transition: 1s;
+                margin-left: 90px;
+                margin-top: 20px;
+                background-color: green;
+            }
+        </style>
+        <div class="box"></div>
+        <script>
+            let box = document.querySelectorAll('.box')[0] //selecionando o item desejado para a animação
+
+            //movimento definido pelo tempo (setTimeout) - (no caso 3000 milesegunos ou 3 segundos)
+            /*setTimeout(() =>{
+                 box.classList.add('animationLeft');
+             }, 3000)*/
+
+            //movimento a partir do click no obj
+            //adiciona um evento (após o click '.box' passa para 'animationLeft' (parametro passado na função box.classList.add()))
+            box.addEventListener('click', ()=>{
+                box.classList.add('animationLeft');
+            })
+
+
+        </script>
+    </body>
+</html>
