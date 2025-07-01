@@ -27,13 +27,13 @@
     <h2 class="vencedor" style="text-align: center;"></h2>
     <hr>
     <div class="aling">
-        <div class="player-options">
-            <div><img opt="pedra" src="rock.png" /></div>
+        <div class="player-options"> <!-- opções jogador -->
+            <div><img opt="pedra" src="rock.png" /></div> <!-- imagens das opções -->
             <div><img opt="papel" src="paper.png" /></div>
             <div><img opt="tesoura" src="scisor.png" /></div>
         </div>
-        <div class="enemy-options"> 
-            <div><img opt="pedra" src="rock.png" /></div>
+        <div class="enemy-options">  <!-- opções pc -->
+            <div><img opt="pedra" src="rock.png" /></div> <!-- imagem das opções -->
             <div><img opt="papel" src="paper.png" /></div>
             <div><img opt="tesoura" src="scisor.png" /></div>
         </div>
@@ -88,7 +88,7 @@
         }
         
 
-        function resetInimigo(){
+        function resetInimigo(){ // reseta a jogada do pc
             const enemyOptions = document.querySelectorAll('.enemy-options div');
             for(var i = 0; i < elementos.length; i++){
                 enemyOptions[i].childNodes[0].style.opacity = 0.3;
@@ -96,7 +96,7 @@
             }
         }
 
-        function inimigoJogar(){
+        function inimigoJogar(){ // seleção da jogada do pc 
             let rand = Math.floor(Math.random()*3); // multiplica o valor por 3 e floor arredonda 
 
             const enemyOptions = document.querySelectorAll('.enemy-options div');
@@ -110,11 +110,11 @@
                 }
             }
 
-            validarVitoria();
+            validarVitoria(); // chamada de funcão para validação final 
 
         }
 
-        function resetOpacityPlayer(){
+        function resetOpacityPlayer(){ // reseta a opacidade da imagem jogada
             for(var i = 0; i < elementos.length; i++){
                 elementos[i].style.opacity = 0.3; //reseta a opacidade 
             }
@@ -122,11 +122,11 @@
 
         for (var i = 0; i < elementos.length; i++) {
             elementos[i].addEventListener('click',function(t){
-                resetOpacityPlayer();
+                resetOpacityPlayer(); // reseta opacidade (chamada de função)
                 t.target.style.opacity = 1; // .target = momento em que o usuário interage com o elemento (no caso iram ficar com opacidade 1)
-                playerOpt = t.target.getAttribute('opt');
+                playerOpt = t.target.getAttribute('opt'); // muda a opacidade 
                 
-                inimigoJogar();
+                inimigoJogar(); // inimigo joga após a jogada do player
             });
         }
     </script>
