@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perguntas e respostas</title>
+</head>
+<body>
+    <div class="title">
+        <h1>1) Escolha uma opção</h1>
+    </div>
+    <from class="pergunta">
+        <div class="resposta">
+            <span>Opção 1</span>
+            <input type="radio" name="pergunta1" value="correta" />
+            <br/>
+        </div>
+
+        <div class="resposta">
+            <span>Opção 2</span>
+            <input type="radio" name="pergunta1" value="incorreta" />
+            <br/>
+        </div>
+
+        <div class="resposta">
+            <span>Opção 3</span>
+            <input type="radio" name="pergunta1" value="incorreta" />
+            <br/>
+        </div>
+
+
+        <div class="title">
+        <h1>2) Escolha uma opção</h1>
+    </div>
+    <from class="pergunta">
+        <div class="resposta">
+            <span>Opção 1</span>
+            <input type="radio" name="pergunta2" value="correta" />
+            <br/>
+        </div>
+
+        <div class="resposta">
+            <span>Opção 2</span>
+            <input type="radio" name="pergunta2" value="incorreta" />
+            <br/>
+        </div>
+
+        <div class="resposta">
+            <span>Opção 3</span>
+            <input type="radio" name="pergunta2" value="incorreta" />
+            <br/>
+        </div>
+        <br/>
+        
+    </from>
+
+    <script>
+        
+            var elementos = document.querySelectorAll('[type=radio]'); //pega todos os emelementos do tipo type=radio
+            for(let i = 0; i < elementos.length; i++){
+                elementos[i].addEventListener('change',function(a){ //add um evendo quando alguma das opções for clicada "sofrer alguma alteração" 
+                let marcado = a.target.value; //função marcado pega o valor do elemento da função (a) - opção marcada como resposta
+            
+                if(marcado == "correta"){ //confere se a resposta está correta ou não
+                    let parentNode = a.target.parentNode; //pega o pai do elemento anterior
+                    parentNode.style.color = "green" //caso a resposta esteja correta a opção fica verde
+                    
+                    let els = parentNode.parentNode.querySelectorAll('[type=radio]')
+                    
+                    for(let i = 0; i < els.length; i++){
+                        els[i].style.pointerEvents = "none"; //após a escolha da resposta deixa a mudança de alternativa inativa 
+                    }
+
+                }else{
+                    let parentNode = a.target.parentNode;
+                    parentNode.style.color = "red" //caso a resposta esteja correta a opção fica vermelha
+                    
+                    let els = parentNode.parentNode.querySelectorAll('[type=radio]')
+                    
+                    for(let i = 0; i < els.length; i++){
+                        els[i].style.pointerEvents = "none"; //após a escolha da resposta deixa a mudança de alternativa inativa
+                    }
+                    let correta = parentNode.parentNode.querySelector('[value=correta]');
+                    correta.parentNode.style.color = "green"
+                }
+
+                })
+            }
+        
+    </script>
+</body>
+</html>
